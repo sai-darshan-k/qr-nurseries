@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F3D2A">
+<title>ZZ Plant · UrbOVan</title>
+<meta name="description" content="Everything you need to know about the ZZ Plant (Zamioculcas zamiifolia): care, watering, light, safety and a quick home-match check. By UrbOVan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#0F3D2A;
+  --forest-2:#1B5E3F;
+  --leaf:#2E8B57;
+  --leaf-soft:#E4F0E6;
+  --mint:#F1F7F1;
+  --gold:#B8892E;
+  --gold-soft:#F6EBD2;
+  --cream:#FAF8F3;
+  --card:#FFFFFF;
+  --ink:#16261D;
+  --ink-2:#4A5A50;
+  --ink-3:#6E7C73;
+  --line:#E3EAE3;
+  --warn:#B4531F;
+  --warn-soft:#FBEADF;
+  --shadow:0 1px 2px rgba(15,61,42,.06),0 8px 24px -8px rgba(15,61,42,.14);
+  --shadow-lg:0 20px 50px -20px rgba(15,61,42,.35);
+  --r-sm:12px; --r:20px; --r-lg:28px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --forest:#CFE8D6; --forest-2:#9FD3B0; --leaf:#5FC08A; --leaf-soft:#173325; --mint:#11231A;
+    --gold:#E0B865; --gold-soft:#2E2614; --cream:#0B1712; --card:#13241B; --ink:#E9F2EC;
+    --ink-2:#B3C4B9; --ink-3:#8DA094; --line:#21372B; --warn:#F0A070; --warn-soft:#33201A;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -8px rgba(0,0,0,.5);
+    --shadow-lg:0 20px 50px -20px rgba(0,0,0,.7);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:"DM Sans",system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.serif{font-family:"Fraunces",Georgia,serif}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.icon{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.app{max-width:480px;margin:0 auto;background:var(--cream);min-height:100vh;position:relative;padding-bottom:calc(110px + var(--safe-b))}
+@media (min-width:560px){
+  body{background:radial-gradient(1200px 600px at 20% -10%,var(--leaf-soft),transparent),var(--cream)}
+  .app{box-shadow:0 0 0 1px var(--line),var(--shadow-lg)}
+}
+
+/* ---------- Top bar ---------- */
+.topbar{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+.topbar.solid{background:color-mix(in srgb,var(--cream) 88%,transparent);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 1px 0 var(--line)}
+.round-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.88);color:#0F3D2A;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .15s var(--ease)}
+.round-btn:active{transform:scale(.92)}
+.brand{display:flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 4px 14px rgba(0,0,0,.1);text-decoration:none}
+.brand-word{font-weight:700;font-size:17px;letter-spacing:-.01em;color:#16261D;line-height:1}
+.brand-word b{color:#0F5132;font-weight:700}
+.brand-mark{width:26px;height:26px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;height:min(74vh,600px);min-height:440px;overflow:hidden;border-radius:0 0 40px 40px;background:#e9ece6}
+.slides{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;height:100%;scroll-snap-align:start;position:relative}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide:first-child img{object-position:50% 70%;transform:scale(1.04)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,transparent 22%,transparent 50%,rgba(8,30,20,.78) 100%)}
+.hero-chips{position:absolute;top:calc(76px + env(safe-area-inset-top));right:16px;display:flex;flex-direction:column;gap:8px;align-items:flex-end;z-index:2}
+.glass-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600;color:#0F3D2A;background:rgba(255,255,255,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.glass-chip .icon{width:16px;height:16px;color:#1B5E3F}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 22px 34px;color:#fff}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F3DFAE}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor}
+.hero h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(44px,13vw,58px);line-height:.98;letter-spacing:-.02em;margin-top:8px}
+.hero .latin{font-family:"Fraunces",serif;font-style:italic;font-size:19px;opacity:.92;margin-top:6px}
+.dots{display:flex;gap:6px;margin-top:16px}
+.dot{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.5);transition:width .3s var(--ease),background .3s}
+.dot.on{width:22px;background:#fff}
+
+/* ---------- Sections ---------- */
+.section{padding:28px 16px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px;padding:0 4px}
+.sec-kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.sec-title{font-family:"Fraunces",serif;font-weight:600;font-size:25px;line-height:1.15;letter-spacing:-.01em;color:var(--forest);margin-top:2px}
+.sec-sub{color:var(--ink-2);font-size:15px;margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+
+/* Intro / badges */
+.intro{margin:-26px 16px 0;position:relative;z-index:3;padding:18px}
+.aka{font-size:14px;color:var(--ink-2)}
+.aka b{color:var(--ink);font-weight:600}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:13.5px;font-weight:600;background:var(--leaf-soft);color:var(--forest-2)}
+.pill .icon{width:16px;height:16px}
+.pill.gold{background:var(--gold-soft);color:var(--gold)}
+.intro p.lede{margin-top:14px;color:var(--ink-2);font-size:15.5px}
+.quick-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border-top:1px dashed var(--line);padding-top:14px;text-align:center}
+.quick-stats div+div{border-left:1px solid var(--line)}
+.qs-num{white-space:nowrap;font-family:"Fraunces",serif;font-size:22px;font-weight:600;color:var(--forest);line-height:1.1}
+.qs-lbl{font-size:12px;color:var(--ink-3);margin-top:2px}
+
+/* Care grid */
+.care-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.care{padding:14px;display:flex;flex-direction:column;gap:10px;text-align:left;transition:transform .2s var(--ease);position:relative;overflow:hidden}
+.care:active{transform:scale(.98)}
+.care-ic{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--leaf-soft);color:var(--forest-2)}
+.care .lbl{display:block;font-size:14px;font-weight:600;color:var(--ink-3);letter-spacing:.01em}
+.care .val{display:block;font-weight:700;font-size:15.5px;color:var(--ink);line-height:1.3}
+.care .more{font-size:13.5px;color:var(--ink-2);max-height:0;opacity:0;overflow:hidden;transition:max-height .35s var(--ease),opacity .25s}
+.care[aria-expanded="true"] .more{max-height:160px;opacity:1}
+.care .plus{position:absolute;top:12px;right:12px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--ink-3);transition:transform .3s var(--ease)}
+.care .plus .icon{width:14px;height:14px}
+.care[aria-expanded="true"] .plus{transform:rotate(45deg)}
+.hint{font-size:12.5px;color:var(--ink-3);text-align:center;margin-top:10px;display:flex;justify-content:center;gap:6px;align-items:center}
+.hint .icon{width:14px;height:14px}
+
+/* Personality meters */
+.meters{padding:6px 18px}
+.meter{padding:14px 0}
+.meter+.meter{border-top:1px solid var(--line)}
+.meter-top{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:600}
+.meter-top span:last-child{font-size:13px;font-weight:600;color:var(--forest-2)}
+.bar{height:8px;border-radius:99px;background:var(--mint);margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--leaf),var(--forest-2));transition:width 1.2s var(--ease)}
+.bar.gold i{background:linear-gradient(90deg,#E3C178,var(--gold))}
+.bar.warn i{background:linear-gradient(90deg,#F2B48A,var(--warn))}
+.in .bar i{width:var(--w)}
+
+/* Match quiz */
+.match{background:linear-gradient(160deg,#134A33 0%,#0F3D2A 60%,#0B2E20 100%);color:#EAF4ED;border-radius:var(--r-lg);padding:20px 18px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.match::before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-90px;border-radius:50%;border:1.5px solid rgba(224,184,101,.35)}
+.match::after{content:"";position:absolute;width:180px;height:180px;right:-50px;top:-50px;border-radius:50%;border:1.5px solid rgba(224,184,101,.2)}
+.match .sec-kicker{color:#E0B865}
+.match .sec-title{color:#fff}
+.match .sec-sub{color:#B9D2C1}
+.q{margin-top:18px;position:relative;z-index:1}
+.q-label{font-size:14px;font-weight:600;color:#D7E8DC;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.q-label .icon{width:18px;height:18px;color:#E0B865}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:rgba(255,255,255,.07);padding:5px;border-radius:16px}
+.seg button{min-height:46px;padding:6px 4px;border-radius:12px;font-size:13.5px;font-weight:600;color:#CFE2D5;line-height:1.2;transition:background .2s,color .2s,transform .15s}
+.seg button:active{transform:scale(.96)}
+.seg button[aria-pressed="true"]{background:#fff;color:#0F3D2A;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.result{margin-top:20px;display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:14px;position:relative;z-index:1}
+.ring{width:84px;height:84px;flex:none;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8}
+.ring .trk{stroke:rgba(255,255,255,.12)}
+.ring .val{stroke:#E0B865;stroke-linecap:round;stroke-dasharray:226.2;stroke-dashoffset:226.2;transition:stroke-dashoffset .9s var(--ease)}
+.ring-num{position:absolute;inset:0;display:grid;place-items:center;font-family:"Fraunces",serif;font-size:24px;font-weight:600;color:#fff}
+.ring-num small{font-size:12px}
+.res-title{font-family:"Fraunces",serif;font-size:19px;font-weight:600;color:#fff;line-height:1.2}
+.res-text{font-size:14px;color:#C6DCCD;margin-top:4px}
+
+/* Water planner */
+.water{padding:18px}
+.season{display:flex;background:var(--mint);border-radius:14px;padding:4px;gap:4px}
+.season button{flex:1;min-height:42px;border-radius:11px;font-size:14px;font-weight:600;color:var(--ink-2);display:flex;align-items:center;justify-content:center;gap:6px;transition:background .2s,color .2s}
+.season button .icon{width:17px;height:17px}
+.season button[aria-pressed="true"]{background:var(--card);color:var(--forest);box-shadow:var(--shadow)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:16px}
+.cal .dh{font-size:11px;font-weight:700;color:var(--ink-3);text-align:center;letter-spacing:.06em}
+.day{aspect-ratio:1;border-radius:10px;background:var(--mint);display:grid;place-items:center;font-size:12px;color:var(--ink-3);position:relative;transition:background .3s,color .3s,transform .3s var(--ease)}
+.day.wet{background:linear-gradient(160deg,#3D9A6A,#1B5E3F);color:#fff;transform:scale(1.04);box-shadow:0 6px 14px -6px rgba(27,94,63,.6)}
+.day.wet::after{content:"";position:absolute;width:6px;height:8px;top:5px;right:5px;background:#BFE8D0;border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
+.day.feed{box-shadow:inset 0 0 0 2px var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:4px;background:var(--mint)}
+.legend i.w{background:#2E7D52}
+.legend i.f{box-shadow:inset 0 0 0 2px var(--gold)}
+.water-note{margin-top:14px;padding:12px 14px;border-radius:14px;background:var(--leaf-soft);color:var(--forest-2);font-size:14px;display:flex;gap:10px}
+.water-note .icon{width:20px;height:20px;margin-top:1px}
+.finger{display:flex;gap:12px;align-items:center;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+.finger-ic{width:46px;height:46px;border-radius:14px;background:var(--gold-soft);color:var(--gold);display:grid;place-items:center;flex:none}
+
+/* Placement */
+.rooms{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:none}
+.rooms::-webkit-scrollbar{display:none}
+.room{flex:0 0 148px;scroll-snap-align:start;padding:14px;display:flex;flex-direction:column;gap:8px}
+.room .care-ic{background:var(--gold-soft);color:var(--gold)}
+.room h3{font-size:15px;font-weight:700}
+.room p{font-size:13px;color:var(--ink-2);line-height:1.4}
+.stars{display:flex;gap:2px;color:var(--gold)}
+.stars .icon{width:14px;height:14px;fill:currentColor;stroke:none}
+.stars .icon.off{fill:var(--line)}
+
+/* Feature photo */
+.feature{position:relative;border-radius:var(--r-lg);overflow:hidden;height:340px;box-shadow:var(--shadow-lg)}
+.feature img{width:100%;height:100%;object-fit:cover}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(8,30,20,.86))}
+.feature-copy{position:absolute;z-index:1;left:18px;right:18px;bottom:18px;color:#fff}
+.feature-copy h3{font-family:"Fraunces",serif;font-size:24px;font-weight:600;line-height:1.15}
+.feature-copy p{font-size:14.5px;color:#D6E6DB;margin-top:6px}
+
+/* Checklist */
+.checklist{padding:6px 6px}
+.progress-row{display:flex;justify-content:space-between;align-items:center;padding:12px 12px 4px;font-size:13px;font-weight:600;color:var(--ink-3)}
+.progress-row .bar{flex:1;margin:0 0 0 12px;height:6px}
+.progress-row .bar i{transition:width .4s var(--ease)}
+.check{width:100%;display:flex;gap:14px;align-items:flex-start;text-align:left;padding:12px;border-radius:14px;min-height:56px;transition:background .2s}
+.check:active{background:var(--mint)}
+.box{width:26px;height:26px;flex:none;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;transition:background .25s,border-color .25s,transform .25s var(--ease)}
+.box .icon{width:16px;height:16px;stroke:#fff;stroke-width:3;opacity:0;transform:scale(.5);transition:opacity .2s,transform .25s var(--ease)}
+.check[aria-checked="true"] .box{background:var(--leaf);border-color:var(--leaf)}
+.check[aria-checked="true"] .box .icon{opacity:1;transform:scale(1)}
+.check b{display:block;font-size:15px;font-weight:600}
+.check span.t{font-size:13.5px;color:var(--ink-2)}
+.check[aria-checked="true"] b{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--leaf)}
+
+/* Symptoms accordion */
+.acc{overflow:hidden}
+.acc+.acc{margin-top:8px}
+.acc-btn{width:100%;display:flex;gap:12px;align-items:center;padding:14px;text-align:left;min-height:64px}
+.sw{width:40px;height:40px;border-radius:12px;flex:none;display:grid;place-items:center}
+.acc-btn b{display:block;font-size:15px;font-weight:600}
+.acc-btn small{font-size:13px;color:var(--ink-3)}
+.acc-btn .chev{margin-left:auto;color:var(--ink-3);transition:transform .3s var(--ease)}
+.acc[open-state="true"] .chev{transform:rotate(180deg)}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.acc[open-state="true"] .acc-body{grid-template-rows:1fr}
+.acc-inner{overflow:hidden}
+.acc-inner div{padding:0 14px 16px 66px;font-size:14px;color:var(--ink-2)}
+.acc-inner strong{color:var(--ink);font-weight:600}
+.fix{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:8px;background:var(--leaf-soft);color:var(--forest-2);font-weight:600;font-size:13px}
+
+/* Facts carousel */
+.facts{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 14px;margin:0 -16px;scrollbar-width:none}
+.facts::-webkit-scrollbar{display:none}
+.fact{flex:0 0 78%;scroll-snap-align:center;border-radius:var(--r);padding:20px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.fact:nth-child(4n+1){background:#E7F1E8;color:#123D29}
+.fact:nth-child(4n+2){background:#F5EBD3;color:#4D3A10}
+.fact:nth-child(4n+3){background:#123D29;color:#E9F3EC}
+.fact:nth-child(4n+4){background:#DCEBE7;color:#123D33}
+.fact .n{font-family:"Fraunces",serif;font-size:46px;font-weight:600;line-height:1;opacity:.9}
+.fact p{font-size:15px;font-weight:500;line-height:1.45;margin-top:14px}
+.fact .leafbg{position:absolute;right:-20px;top:-20px;width:120px;height:120px;opacity:.12}
+
+/* Safety */
+.safety{padding:18px;background:var(--warn-soft);border-color:transparent;display:flex;gap:14px}
+.safety .care-ic{background:rgba(180,83,31,.14);color:var(--warn);flex:none}
+.safety h3{font-size:16px;font-weight:700;color:var(--warn)}
+.safety p{font-size:14px;color:var(--ink-2);margin-top:4px}
+.safety ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+.safety li{font-size:14px;display:flex;gap:8px;color:var(--ink)}
+.safety li .icon{width:18px;height:18px;color:var(--warn);margin-top:2px}
+
+/* Growth timeline */
+.timeline{padding:18px 18px 8px}
+.tl{position:relative;padding-left:30px;padding-bottom:18px}
+.tl::before{content:"";position:absolute;left:9px;top:22px;bottom:-2px;width:2px;background:var(--line)}
+.tl:last-child::before{display:none}
+.tl::after{content:"";position:absolute;left:3px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--card);border:3px solid var(--leaf)}
+.tl b{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.tl h3{font-size:16px;font-weight:700;margin-top:1px}
+.tl p{font-size:14px;color:var(--ink-2);margin-top:2px}
+
+/* CTA */
+.cta{border-radius:var(--r-lg);padding:22px 18px 18px;background:radial-gradient(400px 220px at 100% 0%,var(--gold-soft),transparent 70%),var(--card);border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.cta-top{display:flex;gap:14px;align-items:flex-start}
+.phone-ic{width:54px;height:72px;flex:none;border-radius:14px;border:2.5px solid var(--forest-2);display:grid;place-items:center;color:var(--leaf);position:relative}
+.phone-ic::before{content:"";position:absolute;top:5px;width:14px;height:3px;border-radius:2px;background:var(--forest-2)}
+.cta h2{font-family:"Fraunces",serif;font-size:23px;font-weight:600;color:var(--forest);line-height:1.15}
+.cta p{font-size:14px;color:var(--ink-2);margin-top:6px}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.perk{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--ink);background:var(--mint);border-radius:12px;padding:10px}
+.perk .icon{width:18px;height:18px;color:var(--leaf)}
+.btn{width:100%;min-height:54px;border-radius:16px;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .15s var(--ease),box-shadow .2s;text-decoration:none}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:linear-gradient(180deg,#1E6B47,#0F4A31);color:#fff;box-shadow:0 10px 24px -10px rgba(15,74,49,.7)}
+.btn-ghost{margin-top:10px;border:1.5px solid var(--forest-2);color:var(--forest)}
+
+/* Footer */
+footer{padding:36px 22px 20px;text-align:center}
+footer img{width:180px;margin:0 auto;border-radius:10px;background:#fff;padding:6px 10px}
+footer p{font-size:13px;color:var(--ink-3);margin-top:12px}
+
+/* Sticky bar */
+.dock{position:fixed;left:50%;bottom:0;transform:translate(-50%,120%);width:100%;max-width:480px;z-index:50;padding:10px 16px calc(12px + var(--safe-b));background:color-mix(in srgb,var(--cream) 90%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;transition:transform .45s var(--ease)}
+.dock.show{transform:translate(-50%,0)}
+.dock-thumb{width:46px;height:46px;border-radius:12px;object-fit:cover;flex:none}
+.dock-txt{flex:1;min-width:0}
+.dock-txt b{display:block;font-size:15px;line-height:1.2}
+.dock-txt small{font-size:12.5px;color:var(--ink-3)}
+.dock .btn{width:auto;min-height:46px;padding:0 18px;font-size:15px}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:calc(96px + var(--safe-b));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#0F3D2A;color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;font-weight:600;box-shadow:var(--shadow-lg);z-index:60;transition:opacity .25s,transform .3s var(--ease);max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Icon sprite (Lucide-style strokes) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 2.5c-.5 3-2 5-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-soil" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M12 20v-9"/><path d="M12 11c0-3.5-2.5-6-7-6 0 3.5 2.5 6 7 6Z"/><path d="M12 11c0-3 2-5.5 6-5.5 0 3-2 5.5-6 5.5Z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.05Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v0M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5H6V11a2 2 0 0 0-4 0Z"/><path d="M4 18v2M20 18v2"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M2 12h20M7 19v2M17 19v2"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3M13 20h9M10 12v.01"/><path d="M13 4.56v16.88a.5.5 0 0 1-.65.48L5 20V5.6a1 1 0 0 1 .76-.97l6-1.5a1 1 0 0 1 1.24.97Z"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></symbol>
+  <symbol id="i-air" viewBox="0 0 24 24"><path d="M12 3c4 3 4 6 0 9s-4 6 0 9"/><path d="M5 6c2.5 2 2.5 4 0 6M19 12c-2.5 2-2.5 4 0 6"/></symbol>
+</svg>
+
+<div class="app">
+
+  <!-- Top bar -->
+  <header class="topbar" id="topbar">
+    <button class="round-btn" id="backBtn" aria-label="Go back"><svg class="icon"><use href="#i-back"/></svg></button>
+    <a class="brand" href="#" aria-label="UrbOVan home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="#C9A24A" stroke-width="2.6"/>
+        <path d="M16 25c-5-2.5-6.5-7-4-12.5C14 8.5 18 7 21.5 7c.8 4.5-.2 9.5-3 13-1 1.2-1.6 2.6-2.5 5Z" fill="#0F5132"/>
+        <path d="M16 25c.5-4.5 1.6-8.5 4-12" stroke="#E9D9A6" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-word">Urb<span style="color:#C9A24A">O</span><b>Van</b></span>
+    </a>
+    <button class="round-btn" id="shareBtn" aria-label="Share this plant"><svg class="icon"><use href="#i-share"/></svg></button>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-label="ZZ Plant photos">
+      <div class="slides" id="slides">
+        <div class="slide"><img src="images/zz-hero.jpg" alt="ZZ plant with glossy green leaves in a terracotta pot" fetchpriority="high"></div>
+        <div class="slide"><img src="images/zz-styled.jpg" alt="ZZ plant in a white pot being repotted in a plant studio" loading="lazy"></div>
+      </div>
+      <div class="hero-chips">
+        <span class="glass-chip"><svg class="icon"><use href="#i-leaf"/></svg>Indoor Plant</span>
+        <span class="glass-chip"><svg class="icon"><use href="#i-moon"/></svg>Low-light hero</span>
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow">Meet your new plant</span>
+        <h1>ZZ Plant</h1>
+        <p class="latin">Zamioculcas zamiifolia</p>
+        <div class="dots" id="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span></div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="card intro reveal" aria-label="About the ZZ plant">
+      <p class="aka">Also called <b>Zanzibar Gem</b>, <b>Eternity Plant</b> &amp; <b>Emerald Palm</b></p>
+      <div class="pill-row">
+        <span class="pill"><svg class="icon"><use href="#i-check"/></svg>Beginner friendly</span>
+        <span class="pill"><svg class="icon"><use href="#i-drop"/></svg>Drought tolerant</span>
+        <span class="pill gold"><svg class="icon"><use href="#i-star"/></svg>Nursery favourite</span>
+      </div>
+      <p class="lede">Waxy, mirror-glossy leaves and an attitude that shrugs off neglect. The ZZ stores water in potato-like rhizomes under the soil, so it forgives missed waterings, dim corners and busy weeks.</p>
+      <div class="quick-stats">
+        <div><div class="qs-num">2–4 wk</div><div class="qs-lbl">Watering</div></div>
+        <div><div class="qs-num">~90 cm</div><div class="qs-lbl">Max height</div></div>
+        <div><div class="qs-num">10+ yr</div><div class="qs-lbl">Lifespan</div></div>
+      </div>
+    </section>
+
+    <!-- Care at a glance -->
+    <section class="section" aria-labelledby="care-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Care guide</div><h2 class="sec-title" id="care-h">Care at a glance</h2></div>
+      </div>
+      <div class="care-grid">
+        <button class="card care reveal" aria-expanded="false">
+          <span class="plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span class="care-ic"><svg class="icon"><use href="#i-sun"/></svg></span>
+          <span><span class="lbl">Light</span><span class="val">Low to bright indirect</span></span>
+          <span class="more">Thrives near an east or north window. Avoid harsh afternoon sun, which scorches the leaves yellow.</span>
+        </button>
+        <button class="card care reveal" aria-expanded="false">
+          <span class="plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span class="care-ic"><svg class="icon"><use href="#i-drop"/></svg></span>
+          <span><span class="lbl">Water</span><span class="val">Every 2–4 weeks</span></span>
+          <span class="more">Only when the soil is completely dry. Soak thoroughly, let it drain, and never leave it standing in water.</span>
+        </button>
+        <button class="card care reveal" aria-expanded="false">
+          <span class="plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span class="care-ic"><svg class="icon"><use href="#i-temp"/></svg></span>
+          <span><span class="lbl">Temperature</span><span class="val">18–30°C</span></span>
+          <span class="more">Keep above 12°C. Move away from AC vents and cold drafts in winter.</span>
+        </button>
+        <button class="card care reveal" aria-expanded="false">
+          <span class="plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span class="care-ic"><svg class="icon"><use href="#i-wind"/></svg></span>
+          <span><span class="lbl">Humidity</span><span class="val">Normal room air</span></span>
+          <span class="more">No misting needed. Average home humidity (40–50%) is perfect.</span>
+        </button>
+        <button class="card care reveal" aria-expanded="false">
+          <span class="plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span class="care-ic"><svg class="icon"><use href="#i-soil"/></svg></span>
+          <span><span class="lbl">Soil</span><span class="val">Fast-draining mix</span></span>
+          <span class="more">Potting mix plus 30% perlite or cactus mix. Always use a pot with drainage holes.</span>
+        </button>
+        <button class="card care reveal" aria-expanded="false">
+          <span class="plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span class="care-ic"><svg class="icon"><use href="#i-sprout"/></svg></span>
+          <span><span class="lbl">Feeding</span><span class="val">Monthly, Mar–Sep</span></span>
+          <span class="more">Use a balanced liquid fertiliser at half strength. Skip feeding in winter.</span>
+        </button>
+      </div>
+      <p class="hint"><svg class="icon"><use href="#i-hand"/></svg>Tap any card for pro tips</p>
+    </section>
+
+    <!-- Personality meters -->
+    <section class="section" aria-labelledby="pers-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Plant personality</div><h2 class="sec-title" id="pers-h">How ZZ behaves</h2></div>
+      </div>
+      <div class="card meters reveal" id="meters">
+        <div class="meter"><div class="meter-top"><span>Ease of care</span><span>Very easy</span></div><div class="bar"><i style="--w:95%"></i></div></div>
+        <div class="meter"><div class="meter-top"><span>Low-light tolerance</span><span>Excellent</span></div><div class="bar"><i style="--w:90%"></i></div></div>
+        <div class="meter"><div class="meter-top"><span>Drought tolerance</span><span>Excellent</span></div><div class="bar"><i style="--w:95%"></i></div></div>
+        <div class="meter"><div class="meter-top"><span>Growth speed</span><span>Slow &amp; steady</span></div><div class="bar gold"><i style="--w:30%"></i></div></div>
+        <div class="meter"><div class="meter-top"><span>Pet &amp; child safety</span><span style="color:var(--warn)">Keep out of reach</span></div><div class="bar warn"><i style="--w:25%"></i></div></div>
+      </div>
+    </section>
+
+    <!-- Home match -->
+    <section class="section" aria-labelledby="match-h">
+      <div class="match reveal">
+        <div class="sec-kicker">30-second check</div>
+        <h2 class="sec-title" id="match-h">Will I suit your home?</h2>
+        <p class="sec-sub">Answer 3 quick taps and get your match.</p>
+
+        <div class="q" data-q="light">
+          <div class="q-label"><svg class="icon"><use href="#i-sun"/></svg>How bright is the spot?</div>
+          <div class="seg" role="group" aria-label="Light level">
+            <button data-v="low" aria-pressed="false">Dim</button>
+            <button data-v="mid" aria-pressed="true">Bright, indirect</button>
+            <button data-v="sun" aria-pressed="false">Direct sun</button>
+          </div>
+        </div>
+        <div class="q" data-q="water">
+          <div class="q-label"><svg class="icon"><use href="#i-drop"/></svg>Your watering style?</div>
+          <div class="seg" role="group" aria-label="Watering style">
+            <button data-v="forget" aria-pressed="true">I forget</button>
+            <button data-v="dry" aria-pressed="false">When it's dry</button>
+            <button data-v="often" aria-pressed="false">Every few days</button>
+          </div>
+        </div>
+        <div class="q" data-q="pets">
+          <div class="q-label"><svg class="icon"><use href="#i-paw"/></svg>Pets or toddlers at home?</div>
+          <div class="seg" role="group" aria-label="Pets or toddlers">
+            <button data-v="no" aria-pressed="true">No</button>
+            <button data-v="yes" aria-pressed="false">Yes</button>
+            <button data-v="high" aria-pressed="false">Plant-chewers</button>
+          </div>
+        </div>
+
+        <div class="result" aria-live="polite">
+          <div class="ring">
+            <svg viewBox="0 0 84 84" aria-hidden="true"><circle class="trk" cx="42" cy="42" r="36"/><circle class="val" id="ringVal" cx="42" cy="42" r="36"/></svg>
+            <div class="ring-num"><span><span id="score">0</span><small>%</small></span></div>
+          </div>
+          <div>
+            <div class="res-title" id="resTitle">Perfect match</div>
+            <div class="res-text" id="resText">You'll get along beautifully.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Watering planner -->
+    <section class="section" aria-labelledby="water-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Watering rhythm</div><h2 class="sec-title" id="water-h">Your 4-week plan</h2></div>
+      </div>
+      <div class="card water reveal">
+        <div class="season" role="group" aria-label="Season">
+          <button data-s="summer" aria-pressed="true"><svg class="icon"><use href="#i-sun"/></svg>Summer</button>
+          <button data-s="monsoon" aria-pressed="false"><svg class="icon"><use href="#i-cloud"/></svg>Monsoon</button>
+          <button data-s="winter" aria-pressed="false"><svg class="icon"><use href="#i-snow"/></svg>Winter</button>
+        </div>
+        <div class="cal" id="cal" aria-label="Four-week watering calendar"></div>
+        <div class="legend">
+          <span><i class="w"></i>Water deeply</span>
+          <span><i class="f"></i>Feed (half strength)</span>
+          <span><i></i>Rest</span>
+        </div>
+        <div class="water-note"><svg class="icon"><use href="#i-drop"/></svg><span id="waterNote"></span></div>
+        <div class="finger">
+          <div class="finger-ic"><svg class="icon"><use href="#i-hand"/></svg></div>
+          <div><b style="color:var(--ink)">The finger test beats the calendar.</b> Push a finger 5 cm into the soil. Bone dry? Water. Even slightly damp? Wait a week.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placement -->
+    <section class="section" aria-labelledby="room-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Placement</div><h2 class="sec-title" id="room-h">Where I'll shine</h2></div>
+      </div>
+      <div class="rooms reveal">
+        <div class="card room"><span class="care-ic"><svg class="icon"><use href="#i-brief"/></svg></span><h3>Office desk</h3><div class="stars" aria-label="5 out of 5"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><p>Happy under fluorescent and LED light.</p></div>
+        <div class="card room"><span class="care-ic"><svg class="icon"><use href="#i-sofa"/></svg></span><h3>Living room</h3><div class="stars" aria-label="5 out of 5"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><p>A sculptural accent beside a sofa or TV unit.</p></div>
+        <div class="card room"><span class="care-ic"><svg class="icon"><use href="#i-bed"/></svg></span><h3>Bedroom</h3><div class="stars" aria-label="4 out of 5"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon off"><use href="#i-star"/></svg></div><p>Quiet, low-maintenance greenery for your nightstand.</p></div>
+        <div class="card room"><span class="care-ic"><svg class="icon"><use href="#i-door"/></svg></span><h3>Hallway</h3><div class="stars" aria-label="4 out of 5"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon off"><use href="#i-star"/></svg></div><p>One of the few plants that copes with dim corridors.</p></div>
+        <div class="card room"><span class="care-ic"><svg class="icon"><use href="#i-bath"/></svg></span><h3>Bathroom</h3><div class="stars" aria-label="3 out of 5"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon off"><use href="#i-star"/></svg><svg class="icon off"><use href="#i-star"/></svg></div><p>Fine if there's a window. Water even less often.</p></div>
+      </div>
+    </section>
+
+    <!-- Feature photo -->
+    <section class="section">
+      <figure class="feature reveal">
+        <img src="images/zz-styled.jpg" alt="Healthy ZZ plant in a white ceramic pot on a potting tray" loading="lazy">
+        <figcaption class="feature-copy">
+          <h3>Repot every 2–3 years</h3>
+          <p>When roots crowd the pot, move up just one size (2–5 cm wider). ZZ likes to be a little snug.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Before you take me home -->
+    <section class="section" aria-labelledby="check-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Your first week</div><h2 class="sec-title" id="check-h">Before you take me home</h2><p class="sec-sub">Tick them off as you go. We'll remember on this phone.</p></div>
+      </div>
+      <div class="card checklist reveal">
+        <div class="progress-row"><span id="chkCount">0 of 5 done</span><div class="bar"><i id="chkBar" style="width:0"></i></div></div>
+        <div role="group" aria-label="First-week checklist" id="checklist">
+          <button class="check" role="checkbox" aria-checked="false" data-k="spot"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Pick a spot away from harsh sun</b><span class="t">Bright, indirect light is ideal. Dim corners are okay too.</span></span></button>
+          <button class="check" role="checkbox" aria-checked="false" data-k="nowater"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Don't water for the first week</b><span class="t">Let it settle in. Nursery soil is usually still moist.</span></span></button>
+          <button class="check" role="checkbox" aria-checked="false" data-k="drain"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Check the pot has drainage holes</b><span class="t">Sitting water is the #1 cause of ZZ root rot.</span></span></button>
+          <button class="check" role="checkbox" aria-checked="false" data-k="reach"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Keep it out of reach of pets and kids</b><span class="t">The leaves aren't safe to eat.</span></span></button>
+          <button class="check" role="checkbox" aria-checked="false" data-k="wipe"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Wipe the leaves once a month</b><span class="t">Dust-free leaves soak up more light and stay glossy.</span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Read my signs -->
+    <section class="section" aria-labelledby="sign-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Plant doctor</div><h2 class="sec-title" id="sign-h">Read my signs</h2><p class="sec-sub">What your ZZ is trying to tell you.</p></div>
+      </div>
+      <div class="reveal" id="signs">
+        <div class="card acc">
+          <button class="acc-btn" aria-expanded="false"><span class="sw" style="background:#F6EBC4;color:#9A7212"><svg class="icon"><use href="#i-leaf"/></svg></span><span><b>Yellow, soft leaves</b><small>Most common issue</small></span><svg class="icon chev"><use href="#i-chev"/></svg></button>
+          <div class="acc-body"><div class="acc-inner"><div><strong>Overwatering.</strong> The rhizomes are sitting in wet soil. Stop watering, let the soil dry completely, and check for mushy roots.<br><span class="fix">Fix: dry out, then water half as often</span></div></div></div>
+        </div>
+        <div class="card acc">
+          <button class="acc-btn" aria-expanded="false"><span class="sw" style="background:#F4E1D3;color:#9B4A1B"><svg class="icon"><use href="#i-alert"/></svg></span><span><b>Mushy, dark stems at the base</b><small>Act fast</small></span><svg class="icon chev"><use href="#i-chev"/></svg></button>
+          <div class="acc-body"><div class="acc-inner"><div><strong>Root rot.</strong> Unpot, cut away soft brown rhizomes with clean scissors, and repot healthy parts into fresh, dry mix.<br><span class="fix">Fix: trim, repot, wait 7 days to water</span></div></div></div>
+        </div>
+        <div class="card acc">
+          <button class="acc-btn" aria-expanded="false"><span class="sw" style="background:#E1EDE4;color:#1B5E3F"><svg class="icon"><use href="#i-drop"/></svg></span><span><b>Wrinkled stems, curling leaves</b><small>Thirsty</small></span><svg class="icon chev"><use href="#i-chev"/></svg></button>
+          <div class="acc-body"><div class="acc-inner"><div><strong>Underwatering.</strong> Even ZZ has limits. Give it a deep soak until water runs out the bottom, then drain well.<br><span class="fix">Fix: one deep drink, then back to routine</span></div></div></div>
+        </div>
+        <div class="card acc">
+          <button class="acc-btn" aria-expanded="false"><span class="sw" style="background:#E6E9F3;color:#3A4A7A"><svg class="icon"><use href="#i-sun"/></svg></span><span><b>Leaning or stretched stems</b><small>Reaching for light</small></span><svg class="icon chev"><use href="#i-chev"/></svg></button>
+          <div class="acc-body"><div class="acc-inner"><div><strong>Too little light.</strong> It's surviving, not thriving. Move it closer to a window and rotate the pot a quarter turn each month.<br><span class="fix">Fix: brighter spot and regular rotation</span></div></div></div>
+        </div>
+        <div class="card acc">
+          <button class="acc-btn" aria-expanded="false"><span class="sw" style="background:#F2E4DA;color:#8A4B2A"><svg class="icon"><use href="#i-temp"/></svg></span><span><b>Brown, crispy patches</b><small>Sun or cold damage</small></span><svg class="icon chev"><use href="#i-chev"/></svg></button>
+          <div class="acc-body"><div class="acc-inner"><div><strong>Scorch or chill.</strong> Direct afternoon sun burns the leaves. Cold drafts and AC blasts below 12°C do the same.<br><span class="fix">Fix: move away from hot glass and cold vents</span></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Growth timeline -->
+    <section class="section" aria-labelledby="grow-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Growing together</div><h2 class="sec-title" id="grow-h">What to expect</h2></div>
+      </div>
+      <div class="card timeline reveal">
+        <div class="tl"><b>Week 1–2</b><h3>Settling in</h3><p>Little visible change while it adjusts to your light. Don't worry, and don't water yet.</p></div>
+        <div class="tl"><b>Month 2–4</b><h3>First new shoot</h3><p>A spear-like stem pushes up from the soil and unfurls into bright, lime-green leaves.</p></div>
+        <div class="tl"><b>Month 6–12</b><h3>Fuller and glossier</h3><p>New leaves darken to deep emerald. Expect 2–4 new stems a year in good light.</p></div>
+        <div class="tl"><b>Year 2–3</b><h3>Time to repot or divide</h3><p>Split the rhizomes to make a second plant, a great gift for a friend.</p></div>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section class="section" aria-labelledby="facts-h">
+      <div class="sec-head reveal">
+        <div><div class="sec-kicker">Did you know?</div><h2 class="sec-title" id="facts-h">Fun facts about me</h2></div>
+      </div>
+      <div class="facts reveal">
+        <article class="fact"><svg class="leafbg icon"><use href="#i-leaf"/></svg><div class="n">01</div><p>I'm from Eastern Africa, where I survive long dry seasons by storing water in my underground rhizomes.</p></article>
+        <article class="fact"><svg class="leafbg icon"><use href="#i-leaf"/></svg><div class="n">02</div><p>My shine is natural. A waxy coating on my leaves locks in moisture, so I never need leaf shine sprays.</p></article>
+        <article class="fact"><svg class="leafbg icon"><use href="#i-leaf"/></svg><div class="n">03</div><p>A single fallen leaf, pushed into soil, can grow roots and a brand-new rhizome. It's slow, but it works.</p></article>
+        <article class="fact"><svg class="leafbg icon"><use href="#i-leaf"/></svg><div class="n">04</div><p>I'm nicknamed the "Eternity Plant" because with basic care I can live happily for over a decade.</p></article>
+      </div>
+    </section>
+
+    <!-- Safety -->
+    <section class="section" aria-labelledby="safe-h">
+      <div class="card safety reveal">
+        <span class="care-ic"><svg class="icon"><use href="#i-paw"/></svg></span>
+        <div>
+          <h3 id="safe-h">Good to know: not for nibbling</h3>
+          <p>All parts contain calcium oxalate crystals. If chewed, they can irritate the mouth and stomach of pets and people.</p>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"/></svg>Place on a shelf or high stand</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Wash hands after pruning or repotting</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>If eaten, rinse the mouth and call your vet or doctor</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-h">
+      <div class="cta reveal" id="cta">
+        <div class="cta-top">
+          <div class="phone-ic"><svg class="icon" style="width:26px;height:26px"><use href="#i-leaf"/></svg></div>
+          <div>
+            <h2 id="cta-h">Taking me home?</h2>
+            <p><b style="color:var(--ink)">Let UrbOVan help you keep me thriving.</b> Care made personal, from your phone.</p>
+          </div>
+        </div>
+        <div class="perks">
+          <div class="perk"><svg class="icon"><use href="#i-bell"/></svg>Watering reminders</div>
+          <div class="perk"><svg class="icon"><use href="#i-cloud"/></svg>Weather-smart care</div>
+          <div class="perk"><svg class="icon"><use href="#i-heart"/></svg>Health tracking</div>
+          <div class="perk"><svg class="icon"><use href="#i-scan"/></svg>AI plant diagnosis</div>
+        </div>
+        <a class="btn btn-primary" href="#" data-toast="Opening UrbOVan in your app store…">Install UrbOVan</a>
+        <button class="btn btn-ghost" data-toast="ZZ Plant added to My Garden" id="addGarden"><svg class="icon"><use href="#i-plus"/></svg>Add to My Garden</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="images/urbovan-logo.png" alt="UrbOVan: Urban Living, Clean Oxygen, Thriving Nature, Smart Ecosystem" loading="lazy">
+    <p>Green Spaces. Happier Lives.<br>You scanned this at an UrbOVan partner nursery.</p>
+  </footer>
+</div>
+
+<!-- Sticky dock -->
+<div class="dock" id="dock" aria-hidden="true">
+  <img class="dock-thumb" src="images/zz-hero.jpg" alt="">
+  <div class="dock-txt"><b>ZZ Plant</b><small>Water every 2–4 weeks</small></div>
+  <a class="btn btn-primary" href="#cta" tabindex="-1">Get the app</a>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  /* Toast */
+  const toastEl = $('#toast'); let tt;
+  const toast = msg => { toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => toastEl.classList.remove('show'), 2200); };
+  $$('[data-toast]').forEach(b => b.addEventListener('click', e => { if (b.getAttribute('href') === '#') e.preventDefault(); toast(b.dataset.toast); }));
+
+  /* Top bar + dock on scroll */
+  const topbar = $('#topbar'), dock = $('#dock'), cta = $('#cta');
+  let ctaVisible = false;
+  new IntersectionObserver(([e]) => { ctaVisible = e.isIntersecting; onScroll(); }).observe(cta);
+  function onScroll() {
+    const y = scrollY;
+    topbar.classList.toggle('solid', y > 300);
+    const show = y > 520 && !ctaVisible;
+    dock.classList.toggle('show', show);
+    dock.setAttribute('aria-hidden', String(!show));
+    dock.querySelector('a').tabIndex = show ? 0 : -1;
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+
+  /* Back + share */
+  $('#backBtn').addEventListener('click', () => history.length > 1 ? history.back() : toast('You\'re on the ZZ Plant page'));
+  $('#shareBtn').addEventListener('click', async () => {
+    const data = { title: 'ZZ Plant · UrbOVan', text: 'The almost-unkillable ZZ Plant: care guide by UrbOVan', url: location.href };
+    try {
+      if (navigator.share) await navigator.share(data);
+      else { await navigator.clipboard.writeText(location.href); toast('Link copied'); }
+    } catch (_) {}
+  });
+
+  /* Hero slider dots */
+  const slides = $('#slides'), dots = $$('#dots .dot');
+  slides.addEventListener('scroll', () => {
+    const i = Math.round(slides.scrollLeft / slides.clientWidth);
+    dots.forEach((d, j) => d.classList.toggle('on', i === j));
+  }, { passive: true });
+
+  /* Reveal on scroll */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  $$('.reveal').forEach(el => io.observe(el));
+
+  /* Care cards expand */
+  $$('.care').forEach(c => c.addEventListener('click', () => c.setAttribute('aria-expanded', c.getAttribute('aria-expanded') !== 'true')));
+
+  /* Accordion */
+  $$('.acc').forEach(a => {
+    const btn = $('.acc-btn', a);
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      $$('.acc').forEach(o => { o.setAttribute('open-state', 'false'); $('.acc-btn', o).setAttribute('aria-expanded', 'false'); });
+      a.setAttribute('open-state', String(open)); btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  /* Home match */
+  const answers = { light: 'mid', water: 'forget', pets: 'no' };
+  const scores = {
+    light: { low: 0, mid: 0, sun: -30 },
+    water: { forget: 0, dry: 0, often: -35 },
+    pets:  { no: 0, yes: -8, high: -22 }
+  };
+  const ring = $('#ringVal'), C = 2 * Math.PI * 36;
+  let shown = 0;
+  function evaluate() {
+    let s = 100 + scores.light[answers.light] + scores.water[answers.water] + scores.pets[answers.pets];
+    if (answers.light === 'low') s -= 4;
+    s = Math.max(20, s);
+    ring.style.strokeDashoffset = C * (1 - s / 100);
+    const from = shown, t0 = performance.now();
+    const step = t => { const p = Math.min(1, (t - t0) / 700); $('#score').textContent = Math.round(from + (s - from) * p); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step); shown = s;
+
+    let title, text;
+    if (answers.water === 'often') { title = 'Careful with the can'; text = 'Frequent watering rots ZZ rhizomes. Set a 3-week reminder and you\'ll be fine.'; }
+    else if (answers.light === 'sun') { title = 'Shade me a little'; text = 'Direct sun scorches my leaves. A sheer curtain or a spot 1–2 m from the window fixes it.'; }
+    else if (answers.pets === 'high') { title = 'Good fit, high shelf'; text = 'We\'re great together, but keep me well out of reach of curious chewers.'; }
+    else if (answers.pets === 'yes') { title = 'Great match'; text = 'Easy care for your lifestyle. Just place me somewhere little paws and hands can\'t reach.'; }
+    else if (answers.light === 'low') { title = 'Great match'; text = 'I\'m one of the best plants for dim rooms. I\'ll just grow a bit slower.'; }
+    else { title = 'Perfect match'; text = answers.water === 'forget' ? 'Forgetful? I love that. I store my own water and won\'t hold a grudge.' : 'Your routine is exactly what I like. We\'ll get along beautifully.'; }
+    $('#resTitle').textContent = title; $('#resText').textContent = text;
+  }
+  $$('.q').forEach(q => $$('button', q).forEach(b => b.addEventListener('click', () => {
+    $$('button', q).forEach(x => x.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true'); answers[q.dataset.q] = b.dataset.v; evaluate();
+  })));
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { evaluate(); o.disconnect(); } }, { threshold: .4 }).observe($('.match'));
+
+  /* Watering calendar */
+  const plans = {
+    summer:  { water: [3, 17], feed: [10], note: 'Hot months: water about every 2 weeks, once the soil is fully dry. Feed once a month.' },
+    monsoon: { water: [8], feed: [], note: 'Humid, cloudy weeks: soil dries slowly. Water about every 3–4 weeks and skip feeding.' },
+    winter:  { water: [12], feed: [], note: 'Rest season: growth pauses. Water every 4–5 weeks and never feed.' }
+  };
+  const cal = $('#cal');
+  function renderCal(season) {
+    const p = plans[season];
+    cal.innerHTML = ['M','T','W','T','F','S','S'].map(d => `<span class="dh" aria-hidden="true">${d}</span>`).join('') +
+      Array.from({ length: 28 }, (_, i) => {
+        const d = i + 1, w = p.water.includes(d), f = p.feed.includes(d);
+        const label = `Day ${d}${w ? ', water' : ''}${f ? ', feed' : ''}`;
+        return `<span class="day${w ? ' wet' : ''}${f ? ' feed' : ''}" aria-label="${label}">${d}</span>`;
+      }).join('');
+    $('#waterNote').textContent = p.note;
+  }
+  $$('.season button').forEach(b => b.addEventListener('click', () => {
+    $$('.season button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true'); renderCal(b.dataset.s);
+  }));
+  const m = new Date().getMonth();
+  const initial = (m >= 5 && m <= 8) ? 'monsoon' : (m >= 10 || m <= 1) ? 'winter' : 'summer';
+  $$('.season button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.s === initial)));
+  renderCal(initial);
+
+  /* Checklist with local memory */
+  const KEY = 'urbovan-zz-checklist';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (_) {}
+  const checks = $$('#checklist .check');
+  function syncChecks() {
+    const done = checks.filter(c => c.getAttribute('aria-checked') === 'true').length;
+    $('#chkCount').textContent = `${done} of ${checks.length} done`;
+    $('#chkBar').style.width = (done / checks.length * 100) + '%';
+    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (_) {}
+    return done;
+  }
+  checks.forEach(c => {
+    if (saved[c.dataset.k]) c.setAttribute('aria-checked', 'true');
+    c.addEventListener('click', () => {
+      const on = c.getAttribute('aria-checked') !== 'true';
+      c.setAttribute('aria-checked', String(on)); saved[c.dataset.k] = on;
+      if (syncChecks() === checks.length && on) toast('All set! Your ZZ is ready for its new home');
+    });
+  });
+  syncChecks();
+})();
+</script>
+</body>
+</html>
